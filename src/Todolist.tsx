@@ -11,6 +11,7 @@ type PropsType = {
     changeTaskStatus: (id: string, isDone: boolean, todolistId: string) => void
     removeTodolist: (id: string) => void
     filter: FilterValuesType
+    removeAllTasks: (todolistId: string) => void
 }
 
 export function Todolist(props: PropsType) {
@@ -56,6 +57,9 @@ export function Todolist(props: PropsType) {
             />
             <button onClick={addTask}>+</button>
             {error && <div className="error-message">{error}</div>}
+        </div>
+        <div>
+            <button onClick={() => props.removeAllTasks(props.id)}>delete all tasks</button>
         </div>
         <ul>
             {
